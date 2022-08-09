@@ -17,6 +17,10 @@ namespace DLL
         {
             return new AppointmentRepo(db);
         }
+        public static IRepo<Notice, int> GetNoticeDataAccess()
+        {
+            return new NoticeRepo(db);
+        }
 
     }
 }
