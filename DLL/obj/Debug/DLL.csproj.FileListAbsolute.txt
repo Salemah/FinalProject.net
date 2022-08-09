@@ -1,0 +1,10 @@
+E:\smstr\awt.net\FinalProject\DLL\bin\Debug\DLL.dll.config
+E:\smstr\awt.net\FinalProject\DLL\bin\Debug\DLL.dll
+E:\smstr\awt.net\FinalProject\DLL\bin\Debug\DLL.pdb
+E:\smstr\awt.net\FinalProject\DLL\bin\Debug\EntityFramework.dll
+E:\smstr\awt.net\FinalProject\DLL\bin\Debug\EntityFramework.xml
+E:\smstr\awt.net\FinalProject\DLL\obj\Debug\DLL.csproj.AssemblyReference.cache
+E:\smstr\awt.net\FinalProject\DLL\obj\Debug\DLL.csproj.CoreCompileInputs.cache
+E:\smstr\awt.net\FinalProject\DLL\obj\Debug\DLL.csproj.CopyComplete
+E:\smstr\awt.net\FinalProject\DLL\obj\Debug\DLL.dll
+E:\smstr\awt.net\FinalProject\DLL\obj\Debug\DLL.pdb

@@ -1,0 +1,12 @@
+E:\smstr\awt.net\FinalProject\BLL\bin\Debug\BLL.dll
+E:\smstr\awt.net\FinalProject\BLL\bin\Debug\BLL.pdb
+E:\smstr\awt.net\FinalProject\BLL\bin\Debug\DLL.dll
+E:\smstr\awt.net\FinalProject\BLL\bin\Debug\EntityFramework.dll
+E:\smstr\awt.net\FinalProject\BLL\bin\Debug\DLL.pdb
+E:\smstr\awt.net\FinalProject\BLL\bin\Debug\DLL.dll.config
+E:\smstr\awt.net\FinalProject\BLL\bin\Debug\EntityFramework.xml
+E:\smstr\awt.net\FinalProject\BLL\obj\Debug\BLL.csproj.AssemblyReference.cache
+E:\smstr\awt.net\FinalProject\BLL\obj\Debug\BLL.csproj.CoreCompileInputs.cache
+E:\smstr\awt.net\FinalProject\BLL\obj\Debug\BLL.csproj.CopyComplete
+E:\smstr\awt.net\FinalProject\BLL\obj\Debug\BLL.dll
+E:\smstr\awt.net\FinalProject\BLL\obj\Debug\BLL.pdb
