@@ -21,6 +21,10 @@ namespace DLL
         {
             return new NoticeRepo(db);
         }
+        public static IRepo<Epatient, int> GetEpatientDataAccess()
+        {
+            return new EpatientRepo(db);
+        }
 
     }
 }

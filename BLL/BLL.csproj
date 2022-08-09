@@ -42,10 +42,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BOs\AppointmentModel.cs" />
+    <Compile Include="BOs\EpatientModel.cs" />
     <Compile Include="BOs\NoticeModel.cs" />
     <Compile Include="Class1.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Services\AppointmentService.cs" />
+    <Compile Include="Services\EpatientService.cs" />
     <Compile Include="Services\NoticeService.cs" />
   </ItemGroup>
   <ItemGroup>

@@ -9,35 +9,35 @@ using System.Web.Http;
 
 namespace Presentation.Controllers
 {
-    public class NoticeController : ApiController
+    public class EpatientController : ApiController
     {
-        [Route("api/notice")]
+        [Route("api/epatient")]
         [HttpGet]
         public HttpResponseMessage Get()
         {
-            var data = NoticeService.Get();
+            var data = EpatientService.Get();
             if (data != null)
             {
                 return Request.CreateResponse(HttpStatusCode.OK, data);
             }
             return Request.CreateResponse(HttpStatusCode.NoContent, "Empty");
         }
-        [Route("api/notice/{id}")]
+        [Route("api/epatient/{id}")]
         [HttpGet]
         public HttpResponseMessage Get(int id)
         {
-            var data = NoticeService.GetOnly(id);
+            var data = EpatientService.GetOnly(id);
             if (data != null)
             {
                 return Request.CreateResponse(HttpStatusCode.OK, data);
             }
-            return Request.CreateResponse(HttpStatusCode.NotFound, "No Notice found");
+            return Request.CreateResponse(HttpStatusCode.NotFound, "No Emergency patient  found");
         }
-        [Route("api/notice/create")]
+        [Route("api/epatient/create")]
         [HttpPost]
-        public HttpResponseMessage Create(NoticeModel a)
+        public HttpResponseMessage Create(EpatientModel a)
         {
-            var data = NoticeService.Create(a);
+            var data = EpatientService.Create(a);
             if (data == true)
             {
                 return Request.CreateResponse(HttpStatusCode.OK, data);
@@ -45,30 +45,32 @@ namespace Presentation.Controllers
             return Request.CreateResponse(HttpStatusCode.InternalServerError, "Try again");
         }
 
-        [Route("api/notice/update/{id}")]
+        [Route("api/epatient/update/{id}")]
         [HttpPut]
-        public HttpResponseMessage Update(NoticeModel notice)
+        public HttpResponseMessage Update(EpatientModel notice)
         {
-            var data = NoticeService.Update(notice);
+            var data = EpatientService.Update(notice);
             if (data == true)
             {
                 return Request.CreateResponse(HttpStatusCode.OK, data);
             }
-            return Request.CreateResponse(HttpStatusCode.NotAcceptable, "No Notice Found");
+            return Request.CreateResponse(HttpStatusCode.NotAcceptable, "No Emergency patient  Found");
 
         }
 
-        [Route("api/notice/delete/{id}")]
+        [Route("api/epatient/delete/{id}")]
         [HttpGet]
         public HttpResponseMessage Delete(int id)
         {
-            var data = NoticeService.Delete(id);
+            var data = EpatientService.Delete(id);
             if (data == true)
             {
-                return Request.CreateResponse(HttpStatusCode.OK, "Notice Deleted");
+                return Request.CreateResponse(HttpStatusCode.OK, "Emergency patient Deleted");
             }
             return Request.CreateResponse(HttpStatusCode.NotFound, "No Notice Found");
         }
+
+
 
     }
 }
