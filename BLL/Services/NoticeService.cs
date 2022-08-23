@@ -11,13 +11,13 @@ namespace BLL.Services
 {
     public class NoticeService
     {
-        public static List<NoticeModel> Get()      //get all
+        public static List<AdminNoticeModel> Get()      //get all
         {
             var data = DataAccessFactory.GetNoticeDataAccess().Get();
-            var adata = new List<NoticeModel>();
+            var adata = new List<AdminNoticeModel>();
             foreach (var item in data)
             {
-                adata.Add(new NoticeModel()
+                adata.Add(new AdminNoticeModel()
                 {
                     Id = item.Id,
                     Title = item.Title,
@@ -31,12 +31,12 @@ namespace BLL.Services
         {
             return DataAccessFactory.GetNoticeDataAccess().Get().Take(count).ToList();
         }
-        public static NoticeModel GetOnly(int id)      //get one
+        public static AdminNoticeModel GetOnly(int id)      //get one
         {
             var item = DataAccessFactory.GetNoticeDataAccess().Get(id);
             if (item != null)
             {
-                var a = new NoticeModel()
+                var a = new AdminNoticeModel()
                 {
                     Id = item.Id,
                     Title = item.Title,
@@ -47,7 +47,7 @@ namespace BLL.Services
             }
             return null;
         }
-        public static bool Create(NoticeModel item)        //create
+        public static bool Create(AdminNoticeModel item)        //create
         {
             var notice = new Notice()
             {
@@ -59,7 +59,7 @@ namespace BLL.Services
             return DataAccessFactory.GetNoticeDataAccess().Create(notice);
         }
 
-        public static bool Update(NoticeModel item)        //update
+        public static bool Update(AdminNoticeModel item)        //update
         {
             var notice = new Notice()
             {

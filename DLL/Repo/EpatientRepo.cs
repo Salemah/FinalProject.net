@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace DLL.Repo
 {
-    public class EpatientRepo : IRepo<Epatient, int>
+    public class EpatientRepo : AdminIRepo<Epatient, int>
     {
 
         HospitalEntities db;

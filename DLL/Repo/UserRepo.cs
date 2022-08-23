@@ -1,0 +1,104 @@
+﻿using DLL.EF;
+using DLL.Interfaces;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace DLL.Repo
+{
+   public  class UserRepo : AdminIRepo<Registration, int>, AdmindoctorRepo<Registration, int>, AdminpPatientRepo<Registration, int>
+    {
+        HospitalEntities db;
+        public UserRepo(HospitalEntities db)
+        {
+            this.db = db;
+        }
+
+   
+
+        public bool Create(Registration obj)
+        {
+            db.Registrations.Add(obj);      //create 
+            var res = db.SaveChanges();
+            if (res != 0)
+            {
+                return true;
+            }
+            return false;
+        }
+
+        public bool Delete(int id)
+        {
+            var exst = db.Registrations.FirstOrDefault(x => x.Id == id);
+            if (exst != null)
+            {
+                db.Registrations.Remove(Get(id));       //delete
+                db.SaveChanges();
+                return true;
+            }
+            return false;
+        }
+
+    public bool Update(Registration obj)
+        {
+            var exst = db.Registrations.FirstOrDefault(x => x.Id == obj.Id);
+            if (exst != null)
+            {
+                db.Entry(exst).CurrentValues.SetValues(obj);    //update 
+                db.SaveChanges();
+                return true;
+            }
+            return false;
+        }
+
+        List<Registration> AdminIRepo<Registration, int>.Get()
+        {
+            return db.Registrations.ToList();
+        }
+        /* public List<Registration> Get()
+        {
+            return db.Registrations.ToList();
+        }*/
+        /* Registration IRepo<Registration, int>.Get(int id)
+       {
+           throw new NotImplementedException();
+       }*/
+        public Registration Get(int id)
+        {
+            var registration = db.Registrations.Find(id);    //get one
+            if (registration != null)
+            {
+                return registration;
+            }
+            return null;
+        }
+        public List<Registration> Getdoc()
+        {
+            var alldoctor = (from p in db.Registrations
+                             where p.Type.Equals("doctor")
+                             select p).ToList();
+         //get one
+            if (alldoctor != null)
+            {
+                return alldoctor;
+            }
+            return null;
+        }
+
+        public List<Registration> GetPatient()
+        {
+            var allpatient = (from p in db.Registrations
+                             where p.Type.Equals("patient")
+                             select p).ToList();
+            //get one
+            if (allpatient != null)
+            {
+                return allpatient;
+            }
+            return null;
+           
+        }
+    }
+}

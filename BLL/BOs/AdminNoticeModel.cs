@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace BLL.BOs
 {
-   public  class NoticeModel
+   public  class AdminNoticeModel
     {
         public int Id { get; set; }
         public string Title { get; set; }

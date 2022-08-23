@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace DLL.Interfaces
 {
-    public interface IRepo<CLASS, ID>
+    public interface AdminIRepo<CLASS, ID>
     {
         List<CLASS> Get();
         CLASS Get(ID id);

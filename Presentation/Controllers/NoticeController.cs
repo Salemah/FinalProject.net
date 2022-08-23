@@ -35,7 +35,7 @@ namespace Presentation.Controllers
         }
         [Route("api/notice/create")]
         [HttpPost]
-        public HttpResponseMessage Create(NoticeModel a)
+        public HttpResponseMessage Create(AdminNoticeModel a)
         {
             var data = NoticeService.Create(a);
             if (data == true)
@@ -47,7 +47,7 @@ namespace Presentation.Controllers
 
         [Route("api/notice/update/{id}")]
         [HttpPut]
-        public HttpResponseMessage Update(NoticeModel notice)
+        public HttpResponseMessage Update(AdminNoticeModel notice)
         {
             var data = NoticeService.Update(notice);
             if (data == true)
