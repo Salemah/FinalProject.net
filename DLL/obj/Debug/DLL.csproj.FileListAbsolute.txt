@@ -8,3 +8,12 @@ E:\smstr\awt.net\FinalProject\DLL\obj\Debug\DLL.csproj.CoreCompileInputs.cache
 E:\smstr\awt.net\FinalProject\DLL\obj\Debug\DLL.csproj.CopyComplete
 E:\smstr\awt.net\FinalProject\DLL\obj\Debug\DLL.dll
 E:\smstr\awt.net\FinalProject\DLL\obj\Debug\DLL.pdb
+E:\smstr\awt.net\FinalProject\DLL\bin\Debug\Newtonsoft.Json.dll
+E:\smstr\awt.net\FinalProject\DLL\bin\Debug\System.Net.Http.Formatting.dll
+E:\smstr\awt.net\FinalProject\DLL\bin\Debug\System.Web.Cors.dll
+E:\smstr\awt.net\FinalProject\DLL\bin\Debug\System.Web.Http.Cors.dll
+E:\smstr\awt.net\FinalProject\DLL\bin\Debug\System.Web.Http.dll
+E:\smstr\awt.net\FinalProject\DLL\bin\Debug\Newtonsoft.Json.xml
+E:\smstr\awt.net\FinalProject\DLL\bin\Debug\System.Net.Http.Formatting.xml
+E:\smstr\awt.net\FinalProject\DLL\bin\Debug\System.Web.Http.xml
+E:\smstr\awt.net\FinalProject\DLL\bin\Debug\System.Web.Http.Cors.xml

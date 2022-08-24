@@ -9,15 +9,15 @@ using System.Threading.Tasks;
 
 namespace BLL.Services
 {
-    public class EpatientService
+    public class AdminEpatientService
     {
-        public static List<EpatientModel> Get()      //get all
+        public static List<AdminEpatientModel> Get()      //get all
         {
             var data = DataAccessFactory.GetEpatientDataAccess().Get();
-            var adata = new List<EpatientModel>();
+            var adata = new List<AdminEpatientModel>();
             foreach (var item in data)
             {
-                adata.Add(new EpatientModel()
+                adata.Add(new AdminEpatientModel()
                 {
                     Id = item.Id,
                     Name = item.Name,
@@ -39,12 +39,12 @@ namespace BLL.Services
         {
             return DataAccessFactory.GetEpatientDataAccess().Get().Take(count).ToList();
         }
-        public static EpatientModel GetOnly(int id)      //get one
+        public static AdminEpatientModel GetOnly(int id)      //get one
         {
             var item = DataAccessFactory.GetEpatientDataAccess().Get(id);
             if (item != null)
             {
-                var a = new EpatientModel()
+                var a = new AdminEpatientModel()
                 {
                     Id = item.Id,
                     Name = item.Name,
@@ -60,7 +60,7 @@ namespace BLL.Services
             }
             return null;
         }
-        public static bool Create(EpatientModel item)        //create
+        public static bool Create(AdminEpatientModel item)        //create
         {
             var epatient = new Epatient()
             {
@@ -76,7 +76,7 @@ namespace BLL.Services
             };
             return DataAccessFactory.GetEpatientDataAccess().Create(epatient);
         }
-        public static bool Update(EpatientModel item)        //update
+        public static bool Update(AdminEpatientModel item)        //update
         {
             var epatient = new Epatient()
             {

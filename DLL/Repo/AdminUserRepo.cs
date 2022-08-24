@@ -8,10 +8,10 @@ using System.Threading.Tasks;
 
 namespace DLL.Repo
 {
-   public  class UserRepo : AdminIRepo<Registration, int>, AdmindoctorRepo<Registration, int>, AdminpPatientRepo<Registration, int>
+   public  class AdminUserRepo : AdminIRepo<Registration, int>, AdmindoctorRepo<Registration, int>, AdminpPatientRepo<Registration, int>
     {
         HospitalEntities db;
-        public UserRepo(HospitalEntities db)
+        public AdminUserRepo(HospitalEntities db)
         {
             this.db = db;
         }
@@ -57,14 +57,7 @@ namespace DLL.Repo
         {
             return db.Registrations.ToList();
         }
-        /* public List<Registration> Get()
-        {
-            return db.Registrations.ToList();
-        }*/
-        /* Registration IRepo<Registration, int>.Get(int id)
-       {
-           throw new NotImplementedException();
-       }*/
+        
         public Registration Get(int id)
         {
             var registration = db.Registrations.Find(id);    //get one
@@ -86,7 +79,32 @@ namespace DLL.Repo
             }
             return null;
         }
-
+        public int Dcccount()
+        {
+            var alldoctor = (from p in db.Registrations
+                             where p.Type.Equals("doctor")
+                             select p).ToList();
+            //get one
+            var doctorcount = alldoctor.Count();
+            if (doctorcount != null)
+            {
+                return doctorcount;
+            }
+            return 0;
+        }
+        public int Patientcount()
+        {
+            var allpatient = (from p in db.Registrations
+                              where p.Type.Equals("patient")
+                              select p).ToList();
+            //get one
+            var allpatientcount = allpatient.Count();
+            if (allpatientcount != null)
+            {
+                return allpatientcount;
+            }
+            return 0;
+        }
         public List<Registration> GetPatient()
         {
             var allpatient = (from p in db.Registrations

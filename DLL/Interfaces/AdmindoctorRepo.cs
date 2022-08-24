@@ -9,6 +9,6 @@ namespace DLL.Interfaces
     public interface AdmindoctorRepo<CLASS, ID>
     {
         List<CLASS> Getdoc();
-
+        int  Dcccount();
     }
 }

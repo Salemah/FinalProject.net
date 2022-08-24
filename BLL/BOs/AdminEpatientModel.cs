@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace BLL.BOs
 {
-   public  class EpatientModel
+   public  class AdminEpatientModel
     {
         public int Id { get; set; }
         public string Name { get; set; }

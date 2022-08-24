@@ -6,16 +6,18 @@ using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Web.Http;
+using System.Web.Http.Cors;
 
 namespace Presentation.Controllers
 {
-    public class UserController : ApiController
+    [EnableCors("*", "*", "*")]
+    public class AdminUserController : ApiController
     {
         [Route("api/user")]
         [HttpGet]
         public HttpResponseMessage Get()
         {
-            var data = UserServices.Get();
+            var data = AdminUserServices.Get();
             if (data != null)
             {
                 return Request.CreateResponse(HttpStatusCode.OK, data);
@@ -29,7 +31,7 @@ namespace Presentation.Controllers
         [HttpGet]
         public HttpResponseMessage Getdoc()
         {
-            var data = UserServices.Getdoc();
+            var data = AdminUserServices.Getdoc();
             if (data != null)
             {
                 return Request.CreateResponse(HttpStatusCode.OK, data);
@@ -40,7 +42,7 @@ namespace Presentation.Controllers
         [HttpGet]
         public HttpResponseMessage Getdoc(int id)
         {
-            var data = UserServices.GetOnly(id);
+            var data = AdminUserServices.GetOnly(id);
             if (data != null)
             {
                 return Request.CreateResponse(HttpStatusCode.OK, data);
@@ -54,7 +56,7 @@ namespace Presentation.Controllers
         [HttpGet]
         public HttpResponseMessage GetPatient()
         {
-            var data = UserServices.GetPatient();
+            var data = AdminUserServices.GetPatient();
             if (data != null)
             {
                 return Request.CreateResponse(HttpStatusCode.OK, data);
@@ -65,7 +67,7 @@ namespace Presentation.Controllers
         [HttpGet]
         public HttpResponseMessage GetPatient(int id)
         {
-            var data = UserServices.GetOnly(id);
+            var data = AdminUserServices.GetOnly(id);
             if (data != null)
             {
                 return Request.CreateResponse(HttpStatusCode.OK, data);
@@ -80,7 +82,7 @@ namespace Presentation.Controllers
         [HttpGet]
         public HttpResponseMessage Get(int id)
         {
-            var data = UserServices.GetOnly(id);
+            var data = AdminUserServices.GetOnly(id);
             if (data != null)
             {
                 return Request.CreateResponse(HttpStatusCode.OK, data);
@@ -89,9 +91,9 @@ namespace Presentation.Controllers
         }
         [Route("api/user/create")]
         [HttpPost]
-        public HttpResponseMessage Create(RegistrationModel a)
+        public HttpResponseMessage Create(AdminRegistrationModel a)
         {
-            var data = UserServices.Create(a);
+            var data = AdminUserServices.Create(a);
             if (data == true)
             {
                 return Request.CreateResponse(HttpStatusCode.OK, data);
@@ -100,9 +102,9 @@ namespace Presentation.Controllers
         }
         [Route("api/user/update/{id}")]
         [HttpPut]
-        public HttpResponseMessage Update(RegistrationModel registration)
+        public HttpResponseMessage Update(AdminRegistrationModel registration)
         {
-            var data = UserServices.Update(registration);
+            var data = AdminUserServices.Update(registration);
             if (data == true)
             {
                 return Request.CreateResponse(HttpStatusCode.OK, data);
@@ -115,12 +117,36 @@ namespace Presentation.Controllers
         [HttpGet]
         public HttpResponseMessage Delete(int id)
         {
-            var data = UserServices.Delete(id);
+            var data = AdminUserServices.Delete(id);
             if (data == true)
             {
                 return Request.CreateResponse(HttpStatusCode.OK, "User Deleted");
             }
             return Request.CreateResponse(HttpStatusCode.NotFound, "No User Found");
         }
+
+        [Route("api/user/count")]
+        [HttpGet]
+        public HttpResponseMessage Dcccount()
+        {
+            var data = AdminUserServices.Dcccount();
+            if (data != 0)
+            {
+                return Request.CreateResponse(HttpStatusCode.OK, data);
+            }
+            return Request.CreateResponse(HttpStatusCode.NotFound, "No User Found");
+        }
+        [Route("api/user/patient/count")]
+        [HttpGet]
+        public HttpResponseMessage Patientcount()
+        {
+            var data = AdminUserServices.Patientcount();
+            if (data != 0)
+            {
+                return Request.CreateResponse(HttpStatusCode.OK, data);
+            }
+            return Request.CreateResponse(HttpStatusCode.NotFound, "No User Found");
+        }
+
     }
 }

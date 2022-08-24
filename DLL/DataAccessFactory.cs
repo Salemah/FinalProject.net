@@ -15,27 +15,27 @@ namespace DLL
 
         public static AdminIRepo<Appointment, int> GetAppointmentDataAccess()
         {
-            return new AppointmentRepo(db);
+            return new AdminAppointmentRepo(db);
         }
         public static AdminIRepo<Notice, int> GetNoticeDataAccess()
         {
-            return new NoticeRepo(db);
+            return new AdminNoticeRepo(db);
         }
         public static AdminIRepo<Epatient, int> GetEpatientDataAccess()
         {
-            return new EpatientRepo(db);
+            return new AdminEpatientRepo(db);
         }
         public static AdminIRepo<Registration, int> GetUserDataAccess()
         {
-            return new UserRepo(db);
+            return new AdminUserRepo(db);
         }
         public static AdmindoctorRepo<Registration, int> GetDoctorDataAccess()
         {
-            return new UserRepo(db);
+            return new AdminUserRepo(db);
         }
         public static AdminpPatientRepo<Registration, int> GetPatientDataAccess()
         {
-            return new UserRepo(db);
+            return new AdminUserRepo(db);
         }
 
     }

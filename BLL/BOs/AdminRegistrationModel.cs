@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace BLL.BOs
 {
-   public  class RegistrationModel
+   public  class AdminRegistrationModel
     {
         public int Id { get; set; }
         public string Name { get; set; }
@@ -21,6 +21,7 @@ namespace BLL.BOs
         public string Department { get; set; }
         public string Degree { get; set; }
         public byte[] Image { get; set; }
+        
 
     }
 }

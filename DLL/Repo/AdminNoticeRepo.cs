@@ -8,17 +8,17 @@ using System.Threading.Tasks;
 
 namespace DLL.Repo
 {
-    public class EpatientRepo : AdminIRepo<Epatient, int>
+    public class AdminNoticeRepo : AdminIRepo<Notice, int>
     {
-
         HospitalEntities db;
-        public EpatientRepo(HospitalEntities db)
+        public AdminNoticeRepo(HospitalEntities db)
         {
             this.db = db;
         }
-        public bool Create(Epatient obj)
+
+        public bool Create(Notice obj)
         {
-            db.Epatients.Add(obj);      //create 
+            db.Notices.Add(obj);      //create 
             var res = db.SaveChanges();
             if (res != 0)
             {
@@ -29,24 +29,24 @@ namespace DLL.Repo
 
         public bool Delete(int id)
         {
-            var exst = db.Epatients.FirstOrDefault(x => x.Id == id);
+            var exst = db.Notices.FirstOrDefault(x => x.Id == id);
             if (exst != null)
             {
-                db.Epatients.Remove(Get(id));       //delete
+                db.Notices.Remove(Get(id));       //delete
                 db.SaveChanges();
                 return true;
             }
             return false;
         }
 
-        public List<Epatient> Get()
+        public List<Notice> Get()
         {
-            return db.Epatients.ToList();
+            return db.Notices.ToList();
         }
 
-        public Epatient Get(int id)
+        public Notice Get(int id)
         {
-            var notice = db.Epatients.Find(id);    //get one
+            var notice = db.Notices.Find(id);    //get one
             if (notice != null)
             {
                 return notice;
@@ -54,9 +54,9 @@ namespace DLL.Repo
             return null;
         }
 
-        public bool Update(Epatient obj)
+        public bool Update(Notice obj)
         {
-            var exst = db.Epatients.FirstOrDefault(x => x.Id == obj.Id);
+            var exst = db.Notices.FirstOrDefault(x => x.Id == obj.Id);
             if (exst != null)
             {
                 db.Entry(exst).CurrentValues.SetValues(obj);    //update 

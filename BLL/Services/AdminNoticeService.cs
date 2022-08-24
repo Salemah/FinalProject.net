@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace BLL.Services
 {
-    public class NoticeService
+    public class AdminNoticeService
     {
         public static List<AdminNoticeModel> Get()      //get all
         {

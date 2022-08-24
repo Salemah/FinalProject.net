@@ -6,16 +6,18 @@ using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Web.Http;
+using System.Web.Http.Cors;
 
 namespace Presentation.Controllers
 {
-    public class EpatientController : ApiController
+    [EnableCors("*", "*", "*")]
+    public class AdminEpatientController : ApiController
     {
         [Route("api/epatient")]
         [HttpGet]
         public HttpResponseMessage Get()
         {
-            var data = EpatientService.Get();
+            var data = AdminEpatientService.Get();
             if (data != null)
             {
                 return Request.CreateResponse(HttpStatusCode.OK, data);
@@ -26,7 +28,7 @@ namespace Presentation.Controllers
         [HttpGet]
         public HttpResponseMessage Get(int id)
         {
-            var data = EpatientService.GetOnly(id);
+            var data = AdminEpatientService.GetOnly(id);
             if (data != null)
             {
                 return Request.CreateResponse(HttpStatusCode.OK, data);
@@ -35,9 +37,9 @@ namespace Presentation.Controllers
         }
         [Route("api/epatient/create")]
         [HttpPost]
-        public HttpResponseMessage Create(EpatientModel a)
+        public HttpResponseMessage Create(AdminEpatientModel a)
         {
-            var data = EpatientService.Create(a);
+            var data = AdminEpatientService.Create(a);
             if (data == true)
             {
                 return Request.CreateResponse(HttpStatusCode.OK, data);
@@ -47,9 +49,9 @@ namespace Presentation.Controllers
 
         [Route("api/epatient/update/{id}")]
         [HttpPut]
-        public HttpResponseMessage Update(EpatientModel notice)
+        public HttpResponseMessage Update(AdminEpatientModel notice)
         {
-            var data = EpatientService.Update(notice);
+            var data = AdminEpatientService.Update(notice);
             if (data == true)
             {
                 return Request.CreateResponse(HttpStatusCode.OK, data);
@@ -62,7 +64,7 @@ namespace Presentation.Controllers
         [HttpGet]
         public HttpResponseMessage Delete(int id)
         {
-            var data = EpatientService.Delete(id);
+            var data = AdminEpatientService.Delete(id);
             if (data == true)
             {
                 return Request.CreateResponse(HttpStatusCode.OK, "Emergency patient Deleted");

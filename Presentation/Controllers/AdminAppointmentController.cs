@@ -6,38 +6,42 @@ using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Web.Http;
+using System.Web.Http.Cors;
 
 namespace Presentation.Controllers
 {
-    public class NoticeController : ApiController
+    [EnableCors("*","*","*")]
+    public class AdminAppointmentController : ApiController
     {
-        [Route("api/notice")]
+
+        [Route("api/appointment")]
         [HttpGet]
         public HttpResponseMessage Get()
         {
-            var data = NoticeService.Get();
+            var data = AdminAppointmentService.Get();
             if (data != null)
             {
                 return Request.CreateResponse(HttpStatusCode.OK, data);
             }
             return Request.CreateResponse(HttpStatusCode.NoContent, "Empty");
         }
-        [Route("api/notice/{id}")]
+        [Route("api/appointment/{id}")]
         [HttpGet]
         public HttpResponseMessage Get(int id)
         {
-            var data = NoticeService.GetOnly(id);
+            var data = AdminAppointmentService.GetOnly(id);
             if (data != null)
             {
                 return Request.CreateResponse(HttpStatusCode.OK, data);
             }
-            return Request.CreateResponse(HttpStatusCode.NotFound, "No Notice found");
+            return Request.CreateResponse(HttpStatusCode.NotFound, "No Appointment found");
         }
-        [Route("api/notice/create")]
+
+        [Route("api/appointment/create")]
         [HttpPost]
-        public HttpResponseMessage Create(AdminNoticeModel a)
+        public HttpResponseMessage Create(AdminAppointmentModel a)
         {
-            var data = NoticeService.Create(a);
+            var data = AdminAppointmentService.Create(a);
             if (data == true)
             {
                 return Request.CreateResponse(HttpStatusCode.OK, data);
@@ -45,30 +49,29 @@ namespace Presentation.Controllers
             return Request.CreateResponse(HttpStatusCode.InternalServerError, "Try again");
         }
 
-        [Route("api/notice/update/{id}")]
+        [Route("api/appointment/update/{id}")]
         [HttpPut]
-        public HttpResponseMessage Update(AdminNoticeModel notice)
+        public HttpResponseMessage Update(AdminAppointmentModel appointment)
         {
-            var data = NoticeService.Update(notice);
+            var data = AdminAppointmentService.Update(appointment);
             if (data == true)
             {
-                return Request.CreateResponse(HttpStatusCode.OK, data);
+                return Request.CreateResponse(HttpStatusCode.OK, appointment);
             }
-            return Request.CreateResponse(HttpStatusCode.NotAcceptable, "No Notice Found");
+            return Request.CreateResponse(HttpStatusCode.NotAcceptable, "No Such Appointment Found");
 
         }
 
-        [Route("api/notice/delete/{id}")]
+        [Route("api/appointment/delete/{id}")]
         [HttpGet]
         public HttpResponseMessage Delete(int id)
         {
-            var data = NoticeService.Delete(id);
+            var data = AdminAppointmentService.Delete(id);
             if (data == true)
             {
-                return Request.CreateResponse(HttpStatusCode.OK, "Notice Deleted");
+                return Request.CreateResponse(HttpStatusCode.OK, "Appointment Deleted");
             }
-            return Request.CreateResponse(HttpStatusCode.NotFound, "No Notice Found");
+            return Request.CreateResponse(HttpStatusCode.NotFound, "No Appointment Found");
         }
-
     }
 }

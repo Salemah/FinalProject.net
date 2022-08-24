@@ -10,15 +10,15 @@ using System.Threading.Tasks;
 
 namespace BLL.Services
 {
-    public class AppointmentService
+    public class AdminAppointmentService
     {
-        public static List<AppointmentModel> Get()      //get all
+        public static List<AdminAppointmentModel> Get()      //get all
         {
             var data = DataAccessFactory.GetAppointmentDataAccess().Get();
-            var adata = new List<AppointmentModel>();
+            var adata = new List<AdminAppointmentModel>();
             foreach (var item in data)
             {
-                adata.Add(new AppointmentModel()
+                adata.Add(new AdminAppointmentModel()
                 {
                     Id = item.Id,
                     Doctor_Name = item.Doctor_Name,
@@ -37,12 +37,12 @@ namespace BLL.Services
             return DataAccessFactory.GetAppointmentDataAccess().Get().Take(count).ToList();
         }
 
-        public static AppointmentModel GetOnly(int id)      //get one
+        public static AdminAppointmentModel GetOnly(int id)      //get one
         {
             var item = DataAccessFactory.GetAppointmentDataAccess().Get(id);
             if (item != null)
             {
-                var a = new AppointmentModel()
+                var a = new AdminAppointmentModel()
                 {
                     Id = item.Id,
                     Doctor_Name = item.Doctor_Name,
@@ -57,7 +57,7 @@ namespace BLL.Services
             }
             return null;
         }
-        public static bool Create(AppointmentModel item)        //create
+        public static bool Create(AdminAppointmentModel item)        //create
         {
             var appointmemnt = new Appointment()
             {
@@ -73,7 +73,7 @@ namespace BLL.Services
             return DataAccessFactory.GetAppointmentDataAccess().Create(appointmemnt);
         }
 
-        public static bool Update(AppointmentModel item)        //update
+        public static bool Update(AdminAppointmentModel item)        //update
         {
             var appointmemnt = new Appointment()
             {
