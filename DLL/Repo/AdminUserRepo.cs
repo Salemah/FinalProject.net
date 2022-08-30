@@ -118,5 +118,19 @@ namespace DLL.Repo
             return null;
            
         }
+
+        public int Usscount()
+        {
+            var allpatient = (from p in db.Registrations
+                              
+                              select p).ToList();
+            //get one
+            var allpatientcount = allpatient.Count();
+            if (allpatientcount != null)
+            {
+                return allpatientcount;
+            }
+            return 0;
+        }
     }
 }

@@ -64,6 +64,16 @@ namespace DLL.Repo
             return false;
         }
 
-
+        public int Usercount()
+        {
+            var alldoctor = (from p in db.Registrations select p).ToList();
+            //get one
+            var doctorcount = alldoctor.Count();
+            if (doctorcount != null)
+            {
+                return doctorcount;
+            }
+            return 0;
+        }
     }
 }

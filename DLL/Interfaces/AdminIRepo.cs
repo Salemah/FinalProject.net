@@ -13,5 +13,6 @@ namespace DLL.Interfaces
         bool Create(CLASS obj);
         bool Update(CLASS obj);
         bool Delete(ID id);
+       
     }
 }

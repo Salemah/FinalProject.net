@@ -10,5 +10,6 @@ namespace DLL.Interfaces
     {
         List<CLASS> GetPatient();
         int Patientcount();
+        int Usscount();
     }
 }

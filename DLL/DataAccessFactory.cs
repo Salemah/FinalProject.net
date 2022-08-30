@@ -17,6 +17,7 @@ namespace DLL
         {
             return new AdminAppointmentRepo(db);
         }
+       
         public static AdminIRepo<Notice, int> GetNoticeDataAccess()
         {
             return new AdminNoticeRepo(db);
@@ -37,6 +38,10 @@ namespace DLL
         {
             return new AdminUserRepo(db);
         }
-
+        
+              public static AdminpPatientRepo<Registration, int> GetUsscountDataAccess()
+        {
+            return new AdminUserRepo(db);
+        }
     }
 }

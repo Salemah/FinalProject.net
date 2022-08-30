@@ -136,6 +136,13 @@ namespace BLL.Services
 
            
         }
+        public static int Usscount()      //get all
+        {
+            return DataAccessFactory.GetUsscountDataAccess().Usscount();
+
+
+
+        }
         public static int Patientcount()      //get all
         {
             return DataAccessFactory.GetPatientDataAccess().Patientcount();

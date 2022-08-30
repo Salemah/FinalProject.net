@@ -148,5 +148,18 @@ namespace Presentation.Controllers
             return Request.CreateResponse(HttpStatusCode.NotFound, "No User Found");
         }
 
+      
+        [Route("api/user/all/count")]
+        [HttpGet]
+        public HttpResponseMessage Usscount()
+        {
+            var data = AdminUserServices.Usscount();
+            if (data != 0)
+            {
+                return Request.CreateResponse(HttpStatusCode.OK, data);
+            }
+            return Request.CreateResponse(HttpStatusCode.NotFound, "No User Found");
+        }
+
     }
 }
